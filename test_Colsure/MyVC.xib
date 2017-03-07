@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyVC" customModule="test_Colsure" customModuleProvider="target">
+            <connections>
+                <outlet property="navBarItem" destination="tRG-ly-gg4" id="8Xm-tp-43B"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-Cj-3EE">
+                    <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" red="0.140199505" green="0.79991695389999995" blue="0.57488720400000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Title" id="tRG-ly-gg4"/>
+                    </items>
+                </navigationBar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="YcE-Cj-3EE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="19m-YM-b2N"/>
+                <constraint firstItem="YcE-Cj-3EE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1GP-p9-jc7"/>
+                <constraint firstAttribute="trailing" secondItem="YcE-Cj-3EE" secondAttribute="trailing" id="dZW-2Z-Hfy"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
