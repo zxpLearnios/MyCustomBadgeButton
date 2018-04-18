@@ -21,14 +21,14 @@ class MyCustomBadgeButton: UIButton, CAAnimationDelegate {
     
     let shapLayer = CAShapeLayer()
     var insideCircle = UIButton() // 内圆
-    var self_Frame = CGRect() // 记录自己的frame，以便可以返回自己原来的位置
+    var selfFrame = CGRect() // 记录自己的frame，以便可以返回自己原来的位置
     let groupAniKey = "grounp_Ani"
     
     var image = UIImage()
     var isClickBtn = true // 是否是点击了按钮才调用了clickAction
     
     
-    var images:[UIImage] = {
+    var images: [UIImage] = {
         var ary = [UIImage]()
         for i in 1...8 {
             let name = String(i)
@@ -40,35 +40,35 @@ class MyCustomBadgeButton: UIButton, CAAnimationDelegate {
     
    
     private var _badgeText = ""
-    var badgeText:String {
-        get{
+    var badgeText: String {
+        get {
             return self._badgeText
         }
-        set{
+        set {
             self._badgeText = newValue
-            if badgeText != "" && badgeText != "0" && badgeText.characters.count != 0{
-                self.isHidden = false
-                self.setTitle(badgeText, for: UIControlState())
-                self.setTitle(badgeText, for: .highlighted)
+            if badgeText != "" && badgeText != "0" && badgeText.count != 0 {
+                isHidden = false
+                setTitle(badgeText, for: UIControlState())
+                setTitle(badgeText, for: .highlighted)
                 
                 var frame = self.frame
-                let  badgeH = self.currentBackgroundImage!.size.height;
-                var  badgeW = self.currentBackgroundImage!.size.width;
-                if badgeText.characters.count > 1 {
-                    let badgeSize = (badgeText as NSString).size(attributes: [NSFontAttributeName: (self.titleLabel?.font)!])
+                let  badgeH = currentBackgroundImage!.size.height;
+                var  badgeW = currentBackgroundImage!.size.width;
+                if badgeText.count > 1 {
+                    let badgeSize = (badgeText as NSString).size(attributes: [NSFontAttributeName: (titleLabel?.font)!])
                     badgeW = badgeSize.width + 10
                 }
                 frame.size.width = badgeW
                 frame.size.height = badgeH
                 self.frame = frame
                 
-                let newImage = self.stretchImage(image, withPrecent: 0.5)
-                self.setBackgroundImage(newImage, for: UIControlState())
-                self.setBackgroundImage(newImage, for: .highlighted)
+                let newImage = stretchImage(image, withPrecent: 0.5)
+                setBackgroundImage(newImage, for: UIControlState())
+                setBackgroundImage(newImage, for: .highlighted)
                  // 刷新
                 setNeedsLayout()
             }else{
-                self.isHidden = true
+                isHidden = true
             }
         }
     }
@@ -107,39 +107,40 @@ class MyCustomBadgeButton: UIButton, CAAnimationDelegate {
         super.init(frame: frame)
         self.doInit()
     }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self_Frame = frame
+        selfFrame = frame
     }
     
     // 重写属性
     private func doInit(){
-        self.adjustsImageWhenHighlighted = false
-        self.adjustsImageWhenDisabled = false
+        adjustsImageWhenHighlighted = false
+        adjustsImageWhenDisabled = false
         
         image = UIImage(named: "gesture_pre_confirm")!
-        self.setBackgroundImage(image, for: UIControlState())
-        self.setBackgroundImage(image, for: .highlighted)
-        self.setBackgroundImage(image, for: .disabled)
+        setBackgroundImage(image, for: UIControlState())
+        setBackgroundImage(image, for: .highlighted)
+        setBackgroundImage(image, for: .disabled)
         
-        self.titleLabel?.textAlignment = .center
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 10)
-        self.titleLabel?.textColor = UIColor.black
-        self.isHidden = true // 默认隐藏
+        titleLabel?.textAlignment = .center
+       titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        titleLabel?.textColor = UIColor.black
+        isHidden = true // 默认隐藏
         
         // 点击
-        self.addTarget(self, action: #selector(clickAction), for: .touchUpInside)
+        addTarget(self, action: #selector(clickAction), for: .touchUpInside)
         
         UserDefaults.standard.set(-1, forKey: "currentIndex")
         UserDefaults.standard.synchronize()
         
         // pan手势
         let pan = UIPanGestureRecognizer.init(target: self, action: #selector(panGestureAction))
-        self.addGestureRecognizer(pan)
+       addGestureRecognizer(pan)
         
     }
     
@@ -182,7 +183,7 @@ class MyCustomBadgeButton: UIButton, CAAnimationDelegate {
     
     // MARK: pan手势事件
     func panGestureAction(_ pan: UIPanGestureRecognizer) {
-        self.handleGeture(pan)
+        handleGeture(pan)
     }
     
     // MARK: 缩放、shake动画
@@ -191,7 +192,7 @@ class MyCustomBadgeButton: UIButton, CAAnimationDelegate {
         
         let panPoint = pan.translation(in: self)
         
-        var  changeCenter = self.center;
+        var  changeCenter = center;
         changeCenter.x += panPoint.x
         changeCenter.y += panPoint.y
         self.center = changeCenter
@@ -199,7 +200,7 @@ class MyCustomBadgeButton: UIButton, CAAnimationDelegate {
         
         
         insideCircle.isHidden = false
-        self.doChangeAnimate(self, insideCircle: insideCircle)
+        doChangeAnimate(self, insideCircle: insideCircle)
         
         if pan.state == .ended {
             self.doEndAnimate(self, toView: insideCircle)
@@ -297,7 +298,7 @@ class MyCustomBadgeButton: UIButton, CAAnimationDelegate {
         
         if flag  {
             
-            self.frame = self_Frame
+            self.frame = selfFrame
             self.isEnabled = true
             self.isAnimating = false
         }
@@ -340,7 +341,7 @@ class MyCustomBadgeButton: UIButton, CAAnimationDelegate {
         grounpAni.delegate = self // 代理不同，故aniViewAry 要作为全局的了
         
         
-        self.layer.add(grounpAni, forKey: groupAniKey)
+       layer.add(grounpAni, forKey: groupAniKey)
     }
     
     // MARK: 消失动画
@@ -353,8 +354,8 @@ class MyCustomBadgeButton: UIButton, CAAnimationDelegate {
         aniImageView.animationRepeatCount = 3
         aniImageView.animationDuration = 0.5
         aniImageView.startAnimating()
-        self.superview!.addSubview(aniImageView)
-        self.frame = self_Frame // 恢复至原位置
+       superview!.addSubview(aniImageView)
+        frame = selfFrame // 恢复至原位置
         isRemoveShapleyer = false // 恢复默认
     }
     

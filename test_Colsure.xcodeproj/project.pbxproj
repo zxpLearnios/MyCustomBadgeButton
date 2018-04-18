@@ -25,7 +25,7 @@
 		54697EBA1CE2C9F500FECA67 /* MyCustomNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54697EB91CE2C9F500FECA67 /* MyCustomNav.swift */; };
 		54697EBC1CE2E1D900FECA67 /* VCpushedByFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54697EBB1CE2E1D900FECA67 /* VCpushedByFirstVC.swift */; };
 		54697EBE1CE305B900FECA67 /* VCpushedBySecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54697EBD1CE305B900FECA67 /* VCpushedBySecondVC.swift */; };
-		54714B721CEB254300F118D7 /* CALayer_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54714B711CEB254300F118D7 /* CALayer_extension.swift */; };
+		54714B721CEB254300F118D7 /* CALayer+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54714B711CEB254300F118D7 /* CALayer+extension.swift */; };
 		54714B741CEB29ED00F118D7 /* 好的 --  备份.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54714B731CEB29ED00F118D7 /* 好的 --  备份.swift */; };
 		548BEA0C1CF8528500B6FCDE /* MyLongPressBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548BEA0B1CF8528500B6FCDE /* MyLongPressBadgeButton.swift */; };
 		548D221E1CE6073900432F7C /* bei  fen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548D221D1CE6073900432F7C /* bei  fen.swift */; };
@@ -73,7 +73,7 @@
 		54697EB91CE2C9F500FECA67 /* MyCustomNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomNav.swift; sourceTree = "<group>"; };
 		54697EBB1CE2E1D900FECA67 /* VCpushedByFirstVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCpushedByFirstVC.swift; sourceTree = "<group>"; };
 		54697EBD1CE305B900FECA67 /* VCpushedBySecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCpushedBySecondVC.swift; sourceTree = "<group>"; };
-		54714B711CEB254300F118D7 /* CALayer_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayer_extension.swift; sourceTree = "<group>"; };
+		54714B711CEB254300F118D7 /* CALayer+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+extension.swift"; sourceTree = "<group>"; };
 		54714B731CEB29ED00F118D7 /* 好的 --  备份.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "好的 --  备份.swift"; sourceTree = "<group>"; };
 		548BEA0B1CF8528500B6FCDE /* MyLongPressBadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLongPressBadgeButton.swift; sourceTree = "<group>"; };
 		548D221D1CE6073900432F7C /* bei  fen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "bei  fen.swift"; sourceTree = "<group>"; };
@@ -127,12 +127,13 @@
 		5465EC401CE03C9A0059B6CC /* test_Colsure */ = {
 			isa = PBXGroup;
 			children = (
+				55EDBC7F2086EFE30052660B /* BadgeButton */,
 				5465EC411CE03C9A0059B6CC /* AppDelegate.swift */,
 				5465EC431CE03C9A0059B6CC /* ViewController.swift */,
 				5465EC451CE03C9A0059B6CC /* Main.storyboard */,
 				5465EC6F1CE05FC40059B6CC /* MyVC.swift */,
 				5465EC701CE05FC40059B6CC /* MyVC.xib */,
-				54714B711CEB254300F118D7 /* CALayer_extension.swift */,
+				54714B711CEB254300F118D7 /* CALayer+extension.swift */,
 				5406BF8D1CE1ECED00A0B7E2 /* MyCustomTVC.swift */,
 				54697EB91CE2C9F500FECA67 /* MyCustomNav.swift */,
 				5406BF831CE1E1FB00A0B7E2 /* Tab_subVC!.swift */,
@@ -146,8 +147,6 @@
 				5465EC4D1CE03C9A0059B6CC /* Info.plist */,
 				548D221D1CE6073900432F7C /* bei  fen.swift */,
 				54714B731CEB29ED00F118D7 /* 好的 --  备份.swift */,
-				54664E941CF2D481007AF559 /* MyCustomBadgeButton.swift */,
-				548BEA0B1CF8528500B6FCDE /* MyLongPressBadgeButton.swift */,
 			);
 			path = test_Colsure;
 			sourceTree = "<group>";
@@ -168,6 +167,15 @@
 				5465EC631CE03C9A0059B6CC /* Info.plist */,
 			);
 			path = test_ColsureUITests;
+			sourceTree = "<group>";
+		};
+		55EDBC7F2086EFE30052660B /* BadgeButton */ = {
+			isa = PBXGroup;
+			children = (
+				54664E941CF2D481007AF559 /* MyCustomBadgeButton.swift */,
+				548BEA0B1CF8528500B6FCDE /* MyLongPressBadgeButton.swift */,
+			);
+			path = BadgeButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,7 +323,7 @@
 				543795EE1CE99A4E00CCCAB0 /* Tab_subVC2.swift in Sources */,
 				5465EC441CE03C9A0059B6CC /* ViewController.swift in Sources */,
 				5406BF841CE1E1FB00A0B7E2 /* Tab_subVC!.swift in Sources */,
-				54714B721CEB254300F118D7 /* CALayer_extension.swift in Sources */,
+				54714B721CEB254300F118D7 /* CALayer+extension.swift in Sources */,
 				5465EC711CE05FC40059B6CC /* MyVC.swift in Sources */,
 				54664E951CF2D481007AF559 /* MyCustomBadgeButton.swift in Sources */,
 				54697EBA1CE2C9F500FECA67 /* MyCustomNav.swift in Sources */,

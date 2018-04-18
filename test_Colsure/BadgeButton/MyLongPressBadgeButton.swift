@@ -45,7 +45,7 @@ class MyLongPressBadgeButton: UIButton, CAAnimationDelegate {
         }
         set{
             self._badgeText = newValue
-            if badgeText != "" && badgeText != "0" && badgeText.characters.count != 0{
+            if badgeText != "" && badgeText != "0" && badgeText.count != 0{
                 self.isHidden = false
                 self.setTitle(badgeText, for: UIControlState())
                 self.setTitle(badgeText, for: .highlighted)
@@ -53,7 +53,7 @@ class MyLongPressBadgeButton: UIButton, CAAnimationDelegate {
                 var frame = self.frame
                 let  badgeH = self.currentBackgroundImage!.size.height;
                 var  badgeW = self.currentBackgroundImage!.size.width;
-                if badgeText.characters.count > 1 {
+                if badgeText.count > 1 {
                     let badgeSize = (badgeText as NSString).size(attributes: [NSFontAttributeName: (self.titleLabel?.font)!])
                     badgeW = badgeSize.width + 10
                 }
